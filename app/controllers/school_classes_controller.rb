@@ -1,4 +1,5 @@
 class SchoolClassesController < ApplicationController
+
   def show
     @school_class = SchoolClass.find(params[:id])
   end
@@ -24,8 +25,9 @@ class SchoolClassesController < ApplicationController
     redirect_to school_class_path(@school_class)
   end
 
-  def school_class_params
-     params.require(:school_class).permit(:title, :room_number)
-  end
+  private
 
+  def school_class_params
+    params.require(:school_class).permit(:title, :room_number)
+  end
 end
